@@ -1,9 +1,10 @@
 Digital Bot
 =====================
 <div>
-      <img src="https://img.shields.io/badge/Python-blue?style=for-the-badge&logo=Python&logoColor=white"/>    
+      <img src="https://img.shields.io/badge/Python-yellow?style=for-the-badge&logo=Python&logoColor=white"/>    
       <img src="https://img.shields.io/badge/aiogram-green?style=for-the-badge&logo=aiogram&logoColor=white"/>
       <img src="https://img.shields.io/badge/telegram-blue?style=for-the-badge&logo=telegram&logoColor=white"/>
+      <img src="https://img.shields.io/badge/SQLite-red?style=for-the-badge&logo=SQLite&logoColor=white"/>
 </div>
 
 ------
