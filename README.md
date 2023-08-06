@@ -1,10 +1,18 @@
-Телеграм Бот для Диджитал студии
+Digital Bot
 =====================
-Созданный на языке <b>Python</b> и библеотеке <b>aiogram</b> \
-С базой данных <b>SQLite3</b>
+<div>
+      <img src="https://img.shields.io/badge/Python-blue?style=for-the-badge&logo=Python&logoColor=white"/>    
+      <img src="https://img.shields.io/badge/aiogram-green?style=for-the-badge&logo=aiogram&logoColor=white"/>
+      <img src="https://img.shields.io/badge/telegram-blue?style=for-the-badge&logo=telegram&logoColor=white"/>
+</div>
 
-ссылка на бота \
-https://t.me/ZakazProdaction_bot 
+------
+
+Телеграмм Бот для Digital Студии \
+Создан на языке <b>Python</b> \
+И с использованием библеотеки <b>aiogram</b> \
+И с базой данных <b>SQLite3</b>
+
 
 Функционал:
 -----------------------------------
