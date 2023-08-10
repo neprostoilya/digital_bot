@@ -1,8 +1,7 @@
 import sqlite3
 
-
 def create_user_table():
-    database = sqlite3.connect('library/telegram_bot.db')
+    database = sqlite3.connect('telegram_bot.db')
     cursor = database.cursor()
     cursor.execute('''
     CREATE TABLE IF NOT EXISTS users(
@@ -17,7 +16,7 @@ def create_user_table():
 
 
 def create_categories_table():
-    database = sqlite3.connect('library/telegram_bot.db')
+    database = sqlite3.connect('telegram_bot.db')
     cursor = database.cursor()
     cursor.execute('''
     CREATE TABLE IF NOT EXISTS categories(
@@ -31,7 +30,7 @@ def create_categories_table():
     database.close()
 		
 def insert_categories():
-    database = sqlite3.connect('library/telegram_bot.db')
+    database = sqlite3.connect('telegram_bot.db')
     cursor = database.cursor()
     cursor.execute('''
     INSERT INTO categories(category_name, category_time) VALUES
@@ -47,7 +46,7 @@ def insert_categories():
     database.close()
     
 def select_user(chat_id):
-    database = sqlite3.connect('library/telegram_bot.db')
+    database = sqlite3.connect('telegram_bot.db')
     cursor = database.cursor()
     cursor.execute('''
     SELECT * FROM users WHERE telegram_id = ?
@@ -57,7 +56,7 @@ def select_user(chat_id):
     return user
 
 def first_register_user(chat_id, full_name):
-    database = sqlite3.connect('library/telegram_bot.db')
+    database = sqlite3.connect('telegram_bot.db')
     cursor = database.cursor()
     cursor.execute('''
     INSERT OR IGNORE INTO users(telegram_id, full_name) VALUES (?,?)  
@@ -67,7 +66,7 @@ def first_register_user(chat_id, full_name):
 
 
 def update_user_to_finish_register(phone, chat_id):
-    database = sqlite3.connect('library/telegram_bot.db')
+    database = sqlite3.connect('telegram_bot.db')
     cursor = database.cursor()
     cursor.execute('''
     UPDATE users SET phone = ? WHERE telegram_id = ?
@@ -77,7 +76,7 @@ def update_user_to_finish_register(phone, chat_id):
 
 
 def get_all_categories():
-    database = sqlite3.connect('library/telegram_bot.db')
+    database = sqlite3.connect('telegram_bot.db')
     cursor = database.cursor()
     cursor.execute('''
     SELECT * FROM categories;
@@ -87,7 +86,7 @@ def get_all_categories():
     return categories
 
 def get_hours_categories(id):
-    database = sqlite3.connect('library/telegram_bot.db')
+    database = sqlite3.connect('telegram_bot.db')
     cursor = database.cursor()
     cursor.execute('''
     SELECT  category_time FROM categories
@@ -98,7 +97,7 @@ def get_hours_categories(id):
     return hours
 
 def get_name_categories(id):
-    database = sqlite3.connect('library/telegram_bot.db')
+    database = sqlite3.connect('telegram_bot.db')
     cursor = database.cursor()
     cursor.execute('''
     SELECT category_name FROM categories
@@ -109,7 +108,7 @@ def get_name_categories(id):
     return name
 
 def create_order():
-    database = sqlite3.connect('library/telegram_bot.db')
+    database = sqlite3.connect('telegram_bot.db')
     cursor = database.cursor()
     cursor.execute('''
     CREATE TABLE IF NOT EXISTS user_order(
@@ -128,7 +127,7 @@ def create_order():
     database.close()
 
 def insert_order(name, chat_id, phone, name_category, price, hours, days, week):
-    database = sqlite3.connect('library/telegram_bot.db')
+    database = sqlite3.connect('telegram_bot.db')
     cursor = database.cursor()
     cursor.execute('''
         INSERT OR IGNORE INTO user_order(name, telegram_id, phone, name_category, price, hours, days, week) 
@@ -138,7 +137,7 @@ def insert_order(name, chat_id, phone, name_category, price, hours, days, week):
     database.close()
 
 def get_order(chat_id):
-    database = sqlite3.connect('library/telegram_bot.db')
+    database = sqlite3.connect('telegram_bot.db')
     cursor = database.cursor()
     cursor.execute('''   
     SELECT * FROM user_order
@@ -149,7 +148,7 @@ def get_order(chat_id):
     return order
 
 def delete_order(id):
-    database = sqlite3.connect('library/telegram_bot.db')
+    database = sqlite3.connect('telegram_bot.db')
     cursor = database.cursor()
     cursor.execute('''   
     DELETE FROM user_order
@@ -157,3 +156,12 @@ def delete_order(id):
     ''', (id,))
     database.commit()   
     database.close()
+
+if __name__ == '__main__':
+    my_file = open("telegram_bot.db", "w")
+    my_file.close()
+    create_user_table()
+    create_order()
+    create_categories_table()
+
+    

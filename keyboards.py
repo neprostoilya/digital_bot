@@ -12,7 +12,6 @@ def generate_phone_button():
 
 def generate_main_button():
     categories = get_all_categories()
-
     markup = InlineKeyboardMarkup(row_width=2)
     buttons = []
     for category in categories:
